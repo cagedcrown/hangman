@@ -19,7 +19,7 @@ var Word = React.createClass({
 
 var Hangman = React.createClass({
   render: function() {
-    if (this.props.guesses < 10 ){
+    if (this.props.guesses < 11 ){
       $('#hungman').load("images/hung"+ this.props.guesses + ".svg");
     } else {
       $('#hungman').load("images/hung11.svg");
@@ -67,7 +67,7 @@ var WonLost = React.createClass({
           alert("YOU WIN! The word was " + '"' + this.state.word +'"');
           this.reset();
         } else {
-          if (this.countWrong() > 10) {
+          if (this.countWrong() > 11) {
             alert("YOU LOSE! The word was " + '"' + this.state.word +'"');
             this.setState({losses: this.state.losses+1});
             this.reset();
