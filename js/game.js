@@ -23,6 +23,7 @@ var Hangman = React.createClass({
       $('#hungman').load("images/hung"+ this.props.guesses + ".svg");
     } else {
       $('#hungman').load("images/hung11.svg");
+      alert("YOU LOSE! The word was " + '"' + this.state.word +'"');
     }
 
     return ( <div class="right-col" id="score">Wrong: {this.props.guesses} </div>);
@@ -68,11 +69,9 @@ var WonLost = React.createClass({
           this.reset();
         } else {
           if (this.countWrong() > 10) {
-            setTimeout(function(){
-              alert("YOU LOSE! The word was " + '"' + this.state.word +'"');
-              this.setState({losses: this.state.losses+1});
-              this.reset();
-            },200);
+            // alert("YOU LOSE! The word was " + '"' + this.state.word +'"');
+            this.setState({losses: this.state.losses+1});
+            this.reset();
           }
         }
         this.render();
