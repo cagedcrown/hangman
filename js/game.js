@@ -54,7 +54,7 @@ var WonLost = React.createClass({
           <h1>Hangman-React.js</h1>
           <Word word={this.state.word} guess={this.state.guess}/>
           <input id="guess" type="text" onChange={this.handleChange} />
-          <Hangman guesses={this.state.wrong} /12/>
+          <Hangman guesses={this.state.wrong} />
           <WonLost wins={this.state.wins} losses={this.state.losses} />
           </div>
         );
