@@ -91,7 +91,7 @@ var WonLost = React.createClass({
             wrong++;
           }
         }
-        return wrong + " / 12";
+        return wrong;
       },
       reset: function() {
         this.setState( {
