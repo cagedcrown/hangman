@@ -61,7 +61,7 @@ var WonLost = React.createClass({
       },
       handleChange: function() {
         this.setState({ guess: document.getElementById("guess").value,
-        wrong: this.countWrong()}) + " / 12";
+        wrong: this.countWrong()});
         if (this.checkWin()) {
           this.setState({wins: this.state.wins+1});
           alert("YOU WIN! The word was " + '"' + this.state.word +'"');
@@ -91,7 +91,7 @@ var WonLost = React.createClass({
             wrong++;
           }
         }
-        return wrong;
+        return wrong + " / 12";
       },
       reset: function() {
         this.setState( {
