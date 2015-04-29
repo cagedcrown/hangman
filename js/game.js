@@ -67,7 +67,7 @@ var WonLost = React.createClass({
           alert("YOU WIN! The word was " + '"' + this.state.word +'"');
           this.reset();
         } else {
-          if (this.countWrong() > 10) {
+          if (this.countWrong() >= 10) {
             alert("YOU LOSE! The word was " + '"' + this.state.word +'"');
             this.setState({losses: this.state.losses+1});
             this.reset();
