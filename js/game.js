@@ -51,10 +51,10 @@ var WonLost = React.createClass({
         //alert("game: " + this.state.word + " guess: " + this.state.guess);
         return (
           <div>
-          <h1>Hangman</h1>
+          <h1>Hangman-React.js</h1>
           <Word word={this.state.word} guess={this.state.guess}/>
           <input id="guess" type="text" onChange={this.handleChange} />
-          <Hangman guesses={this.state.wrong} />
+          <Hangman guesses={this.state.wrong} /12/>
           <WonLost wins={this.state.wins} losses={this.state.losses} />
           </div>
         );
