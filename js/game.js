@@ -20,9 +20,9 @@ var Word = React.createClass({
 var Hangman = React.createClass({
   render: function() {
     if (this.props.guesses <= 10 ){
-      $('#hungman').load("images/hang"+ this.props.guesses + ".svg");
+      $('#hungman').load("images/hung"+ this.props.guesses + ".svg");
     } else {
-      $('#hungman').load("images/hang11.svg");
+      $('#hungman').load("images/hung11.svg");
     }
 
     return ( <div class="right-col" id="score">Wrong: {this.props.guesses} </div>);
