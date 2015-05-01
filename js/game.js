@@ -1,4 +1,5 @@
-var words = ["react", "angular", "backbone", "ember", "jquery", "protoype", "rails", "ionic", "node", "prototype", "functions", "this", "appcelerator", "mobile", "object", "self", "virtual", "washington dc", "innovative"];
+// Hangman with React.js
+var words = ["react", "angular", "backbone", "ember", "jquery", "protoype", "rails", "ionic", "node", "prototype", "functions", "this", "appcelerator", "mobile", "object", "self", "virtual", "innovative"];
 
 var Word = React.createClass({
   render: function(){
