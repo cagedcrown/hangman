@@ -18,7 +18,7 @@ var Word = React.createClass({
   }
 });
 
-
+// Updates the hangman svg and amount of wrong guesses out of 12
 var Hangman = React.createClass({
   render: function() {
     if (this.props.guesses <= 10 ){
@@ -41,6 +41,8 @@ var WonLost = React.createClass({
     }
   });
 
+// Picks a random word from the "words" array
+//
   var Game = React.createClass({
     getInitialState: function() {
       return {word: words[Math.floor(Math.random()*words.length)],
@@ -52,7 +54,7 @@ var WonLost = React.createClass({
       render: function() {
         return (
           <div>
-          <h1>Hangman-React.js</h1>
+          <h1>Hangman React</h1>
           <Word word={this.state.word} guess={this.state.guess}/>
           <input id="guess" type="text" onChange={this.handleChange} />
           <Hangman guesses={this.state.wrong} />
