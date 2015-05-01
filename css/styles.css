@@ -28,7 +28,11 @@ h1{
   font-size: 3em;
 }
 
-#guess, #wins, #losses, #score {
+#guess{
   font-size: 3em;
   text-align: center;
+}
+
+#wins, #losses, #score {
+  font-size: 3em;
 }
