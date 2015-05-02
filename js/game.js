@@ -1,6 +1,7 @@
 // Hangman with React.js
 var words = ["react", "angular", "backbone", "ember", "jquery", "protoype", "rails", "ionic", "node", "prototype", "functions", "this", "appcelerator", "mobile", "object", "self", "virtual", "innovative"];
 
+// Displays
 var Word = React.createClass({
   render: function(){
     return ( <div id="word" class="guess">{this.getPartialWord()}</div>);
@@ -43,68 +44,68 @@ var WonLost = React.createClass({
 
 // Picks a random word from the "words" array
 //
-  var Game = React.createClass({
-    getInitialState: function() {
-      return {word: words[Math.floor(Math.random()*words.length)],
-        guess: '',
-        wrong: 0,
-        wins: 0,
-        losses: 0};
-      },
-      render: function() {
-        return (
-          <div>
-          <h1>Hangman React</h1>
-          <Word word={this.state.word} guess={this.state.guess}/>
-          <input id="guess" type="text" onChange={this.handleChange} />
-          <Hangman guesses={this.state.wrong} />
-          <WonLost wins={this.state.wins} losses={this.state.losses} />
-          </div>
-        );
-      },
-      handleChange: function() {
-        this.setState({ guess: document.getElementById("guess").value,
-        wrong: this.countWrong()});
-        if (this.checkWin()) {
-          this.setState({wins: this.state.wins+1});
-          alert("YOU WIN! The word was " + '"' + this.state.word +'"');
-          this.reset();
-        } else {
-          if (this.countWrong() > 11) {
-            alert("YOU LOSE! The word was " + '"' + this.state.word +'"');
-            this.setState({losses: this.state.losses+1});
-            this.reset();
-          }
-        }
-        this.render();
-      },
-      checkWin: function() {
-        for (var i = 0; i < this.state.word.length; i++) {
-          if (document.getElementById("guess").value.indexOf(this.state.word[i]) < 0) {
-            return false;
-          }
-        }
-        return true;
-      },
-      countWrong: function() {
-        var guess = document.getElementById("guess").value;
-        var wrong = 0;
-        for (var i = 0; i < guess.length; i++) {
-          if (this.state.word.indexOf(guess[i]) < 0) {
-            wrong++;
-          }
-        }
-        return wrong;
-      },
-      reset: function() {
-        this.setState( {
-          word: words[Math.floor(Math.random()*words.length)],
-          guess: "",
-          wrong: 0
-        });
-        document.getElementById("guess").value = "";
-        $('#hungman').empty();
+var Game = React.createClass({
+  getInitialState: function() {
+    return {word: words[Math.floor(Math.random()*words.length)],
+      guess: '',
+      wrong: 0,
+      wins: 0,
+      losses: 0};
+  },
+  render: function() {
+    return (
+      <div>
+      <h1>Hangman React</h1>
+      <Word word={this.state.word} guess={this.state.guess}/>
+      <input id="guess" type="text" onChange={this.handleChange} />
+      <Hangman guesses={this.state.wrong} />
+      <WonLost wins={this.state.wins} losses={this.state.losses} />
+      </div>
+    );
+  },
+  handleChange: function() {
+    this.setState({ guess: document.getElementById("guess").value,
+    wrong: this.countWrong()});
+    if (this.checkWin()) {
+      this.setState({wins: this.state.wins+1});
+      alert("YOU WIN! The word was " + '"' + this.state.word +'"');
+      this.reset();
+    } else {
+      if (this.countWrong() > 11) {
+        alert("YOU LOSE! The word was " + '"' + this.state.word +'"');
+        this.setState({losses: this.state.losses+1});
+        this.reset();
       }
+    }
+    this.render();
+  },
+  checkWin: function() {
+    for (var i = 0; i < this.state.word.length; i++) {
+      if (document.getElementById("guess").value.indexOf(this.state.word[i]) < 0) {
+        return false;
+      }
+    }
+    return true;
+  },
+  countWrong: function() {
+    var guess = document.getElementById("guess").value;
+    var wrong = 0;
+    for (var i = 0; i < guess.length; i++) {
+      if (this.state.word.indexOf(guess[i]) < 0) {
+        wrong++;
+      }
+    }
+    return wrong;
+  },
+  reset: function() {
+    this.setState( {
+      word: words[Math.floor(Math.random()*words.length)],
+      guess: "",
+      wrong: 0
     });
+    document.getElementById("guess").value = "";
+    $('#hungman').empty();
+  }
+});
 
-    React.render(<Game />, document.getElementById("game"));
+React.render(<Game />, document.getElementById("game"));
